@@ -52,13 +52,13 @@ public class Main : MonoBehaviour {
     {
         if (sleeping)
         {
-            sleepText.text = "Wake Up";
+            sleepText.text = "Sleep";
             sleeping = false;
             sleepImage.SetActive(false);
         }
         else
         {
-            sleepText.text = "Sleep";
+            sleepText.text = "Wake Up";
             sleeping = true;
             sleepImage.SetActive(true);
         }
