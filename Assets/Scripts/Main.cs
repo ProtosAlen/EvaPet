@@ -3,29 +3,28 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
-    public int maxHealth;
+    public Slider healthSlider;
     public float health;
 
-    public int maxHappiness;
+    public Slider happinessSlider;
     public float happiness;
 
-    public int maxEnergy;
+    public Slider energySlider;
     public float energy;
 
-    public int maxHunger;
+    public Slider hungerSlider;
     public float hunger;
 
-    public int maxThirst;
+    public Slider thirstSlider;
     public float thirst;
 
+    public Text moneyText;
     public int maxMoney;
     public float money;
 
     bool sleeping;
     public Text sleepText;
     public GameObject sleepImage;
-
-    public Text statsText;
 
     public GameObject player;
 
@@ -66,12 +65,19 @@ public class Main : MonoBehaviour {
 
 	void Update () {
 
-        statsText.text = "Health: " + (int)health + "/" + maxHealth +
-            "\nEnergy: " + (int)energy + "/" + maxEnergy +
-            "\nHappiness: " + (int)happiness + "/" + maxHappiness +
-            "\nHunger: " + (int)hunger + "/" + maxHunger +
-            "\nThirst: " + (int)thirst + "/" + maxThirst +
-            "\nMoney: " + (int)money + "/" + maxMoney;
+        healthSlider.value = health;
+        happinessSlider.value = happiness;
+        energySlider.value = energy;
+        hungerSlider.value = hunger;
+        thirstSlider.value = thirst;
+        moneyText.text = (int)money + "€";
+
+        //statsText.text = "Health: " + (int)health + "/" + maxHealth +
+         //   "\nEnergy: " + (int)energy + "/" + maxEnergy +
+          //  "\nHappiness: " + (int)happiness + "/" + maxHappiness +
+          //  "\nHunger: " + (int)hunger + "/" + maxHunger +
+         //   "\nThirst: " + (int)thirst + "/" + maxThirst +
+         //   "\nMoney: " + (int)money + "/" + maxMoney;
 
         /* MONEY CONTROL SECTION*/
 
@@ -102,9 +108,9 @@ public class Main : MonoBehaviour {
             happiness = 0;
         }
 
-        if (happiness >= maxHappiness)
+        if (happiness >= 100)
         {
-            happiness = maxHappiness;
+            happiness = 100;
         }
 
         /* ENERGY CONTROL SECTION*/
@@ -121,14 +127,14 @@ public class Main : MonoBehaviour {
                 energy = 0;
             }
 
-            if (energy >= maxEnergy)
+            if (energy >= 100)
             {
-                energy = maxEnergy;
+                energy = 100;
             }
         }
         else
         {
-            if (energy >= maxEnergy)
+            if (energy >= 100)
             {
                 Debug.Log("Fully Rested.");
             }
@@ -150,9 +156,9 @@ public class Main : MonoBehaviour {
             thirst = 0;
         }
 
-        if (thirst >= maxThirst)
+        if (thirst >= 100)
         {
-            thirst = maxThirst;
+            thirst = 100;
         }
 
         /* HUNGER CONTROL SECTION*/
@@ -166,9 +172,9 @@ public class Main : MonoBehaviour {
             hunger = 0;
         }
 
-        if (hunger >= maxHunger)
+        if (hunger >= 100)
         {
-            hunger = maxHunger;
+            hunger = 100;
         }
 
         /* DAMAGE CONTROL SECTION*/
